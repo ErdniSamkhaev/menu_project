@@ -1,0 +1,18 @@
+<ul>
+{% for item in all_items %}
+    {% if not item.parent %}
+        <li {% if item == active_item %}class="active"{% endif %}>
+            <a href="{{ item.url }}">{{ item.name }}</a>
+            {% if item == active_item or item.children.all %}
+                <ul>
+                    {% for child in item.children.all %}
+                        <li {% if child == active_item %}class="active"{% endif %}>
+                            <a href="{{ child.url }}">{{ child.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endif %}
+{% endfor %}
+</ul>

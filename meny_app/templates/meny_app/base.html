@@ -1,0 +1,18 @@
+{% load meny_tags %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Мой сайт</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            {% draw_menu 'main_menu' %}
+        </ul>
+    </nav>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
